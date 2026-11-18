@@ -1,0 +1,22 @@
+/* 3.x-only positioning for dijits placed over the map */
+#homeButton {
+  position: absolute;
+  top: 95px;
+  left: 20px;
+  z-index: 50;
+}
+
+#basemapToggle {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  z-index: 50;
+}
+
+#search .searchGroup {
+  width: 100%;
+}
+
+#search .arcgisSearch .searchInput {
+  width: 100%;
+}

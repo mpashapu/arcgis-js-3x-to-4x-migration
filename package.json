@@ -1,0 +1,15 @@
+{
+  "name": "arcgis-js-3x-to-4x-migration",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The same Miami-Dade map app built with ArcGIS API for JavaScript 3.46 and ArcGIS Maps SDK for JavaScript 4.34, with a migration guide.",
+  "author": "Malla Reddy Pashapu",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.js\"",
+    "start": "npx --yes http-server -p 8080 -c-1 ."
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

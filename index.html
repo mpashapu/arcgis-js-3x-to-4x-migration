@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArcGIS JS 3.x to 4.x Migration: Side by Side</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1f2933;
+      background: #f1f5f9;
+    }
+    header {
+      padding: 16px 24px;
+      background: #12355b;
+      color: #fff;
+    }
+    header h1 { margin: 0 0 4px; font-size: 1.3rem; }
+    header p { margin: 0; opacity: 0.9; }
+    header a { color: #bfe0ff; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 16px 24px 24px;
+    }
+    .pane {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid #d9e2ec;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .pane h2 {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding: 8px 12px;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #d9e2ec;
+    }
+    .pane h2 a { font-weight: normal; font-size: 0.85rem; }
+    iframe {
+      width: 100%;
+      height: 70vh;
+      border: 0;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Same app, two APIs: ArcGIS JS 3.46 vs. 4.34</h1>
+    <p>
+      A Miami-Dade fire station finder built twice to show a real 3.x to 4.x migration.
+      Read the <a href="https://github.com/mpashapu/arcgis-js-3x-to-4x-migration/blob/main/MIGRATION.md">migration guide</a>
+      or the <a href="https://github.com/mpashapu/arcgis-js-3x-to-4x-migration">source code</a>.
+    </p>
+  </header>
+
+  <!-- Each version runs in its own iframe so the two API loaders never collide -->
+  <main class="grid">
+    <section class="pane">
+      <h2>Legacy: ArcGIS API for JavaScript 3.46 <a href="v3/" target="_blank" rel="noopener">Open full screen</a></h2>
+      <iframe src="v3/" title="Fire Station Finder built with ArcGIS API for JavaScript 3.46" loading="lazy"></iframe>
+    </section>
+    <section class="pane">
+      <h2>Modern: ArcGIS Maps SDK 4.34 <a href="v4/" target="_blank" rel="noopener">Open full screen</a></h2>
+      <iframe src="v4/" title="Fire Station Finder built with ArcGIS Maps SDK for JavaScript 4.34" loading="lazy"></iframe>
+    </section>
+  </main>
+</body>
+</html>

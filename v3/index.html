@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fire Station Finder (ArcGIS API for JavaScript 3.46)</title>
+
+  <!-- 3.x: Dojo theme + Esri CSS are required for the dijits -->
+  <link rel="stylesheet" href="https://js.arcgis.com/3.46/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.46/esri/css/esri.css">
+  <link rel="stylesheet" href="../shared/app.css">
+  <link rel="stylesheet" href="css/v3.css">
+
+  <!-- Shared, API-independent code (loaded before the Dojo AMD loader) -->
+  <script src="../shared/config.js"></script>
+  <script src="../shared/geo-utils.js"></script>
+  <script src="../shared/panel.js"></script>
+
+  <!-- 3.x: register the local "app" package with the Dojo loader -->
+  <script>
+    var dojoConfig = {
+      async: true,
+      packages: [{
+        name: "app",
+        location: location.pathname.replace(/\/[^\/]*$/, "") + "/js"
+      }]
+    };
+  </script>
+  <script src="https://js.arcgis.com/3.46/"></script>
+</head>
+<body class="claro">
+  <div class="app">
+    <header class="app-header">
+      <h1 id="appTitle">Fire Station Finder</h1>
+      <span class="badge">ArcGIS API for JavaScript 3.46 (legacy)</span>
+    </header>
+
+    <div class="app-body">
+      <aside class="panel" aria-label="Search and results">
+        <h2>Find an address</h2>
+        <div id="search"></div>
+
+        <h2>Analysis</h2>
+        <div class="control">
+          <label for="bufferSelect">Radius</label>
+          <select id="bufferSelect"></select>
+          <button id="clearButton" type="button">Clear</button>
+        </div>
+        <div class="control">
+          <input id="analyzeToggle" type="checkbox" checked>
+          <label for="analyzeToggle">Map click runs analysis (off = popups)</label>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite">Loading map...</div>
+        <div id="results"></div>
+
+        <h2>Legend</h2>
+        <div id="legend"></div>
+
+        <p class="footnote">Data: <span id="dataSource"></span></p>
+      </aside>
+
+      <main id="map" class="map">
+        <div id="homeButton"></div>
+        <div id="basemapToggle"></div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    require(["app/main"], function (main) {
+      main.start();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fire Station Finder (ArcGIS Maps SDK for JavaScript 4.34)</title>
+
+  <link rel="stylesheet" href="../shared/app.css">
+  <link rel="stylesheet" href="css/v4.css">
+
+  <!-- Shared, API-independent code: identical to the 3.x page -->
+  <script src="../shared/config.js"></script>
+  <script src="../shared/geo-utils.js"></script>
+  <script src="../shared/panel.js"></script>
+
+  <!-- 4.34: Calcite + core SDK + map components from the CDN.
+       Map components no longer need the core CSS stylesheet. -->
+  <script type="module" src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"></script>
+  <script src="https://js.arcgis.com/4.34/"></script>
+  <script type="module" src="https://js.arcgis.com/4.34/map-components/"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1 id="appTitle">Fire Station Finder</h1>
+      <span class="badge">ArcGIS Maps SDK for JavaScript 4.34 + map components</span>
+    </header>
+
+    <div class="app-body">
+      <aside class="panel" aria-label="Search and results">
+        <h2>Find an address</h2>
+        <!-- reference-element connects a component outside the map to it -->
+        <arcgis-search reference-element="map"></arcgis-search>
+
+        <h2>Analysis</h2>
+        <div class="control">
+          <label for="bufferSelect">Radius</label>
+          <select id="bufferSelect"></select>
+          <button id="clearButton" type="button">Clear</button>
+        </div>
+        <div class="control">
+          <input id="analyzeToggle" type="checkbox" checked>
+          <label for="analyzeToggle">Map click runs analysis (off = popups)</label>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite">Loading map...</div>
+        <div id="results"></div>
+
+        <h2>Legend</h2>
+        <arcgis-legend reference-element="map"></arcgis-legend>
+
+        <p class="footnote">Data: <span id="dataSource"></span></p>
+      </aside>
+
+      <!-- 4.34: slot replaces the deprecated "position" attribute -->
+      <arcgis-map id="map" class="map" basemap="topo-vector" center="-80.3, 25.72" zoom="10">
+        <arcgis-home slot="top-left"></arcgis-home>
+        <arcgis-basemap-toggle slot="bottom-right" next-basemap="satellite"></arcgis-basemap-toggle>
+        <arcgis-scale-bar slot="bottom-left" unit="dual"></arcgis-scale-bar>
+      </arcgis-map>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

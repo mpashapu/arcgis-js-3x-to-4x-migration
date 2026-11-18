@@ -1,0 +1,14 @@
+/* 4.x-only styles. Components handle their own positioning via slots. */
+arcgis-map {
+  display: block;
+  height: 100%;
+}
+
+arcgis-search {
+  display: block;
+  width: 100%;
+}
+
+arcgis-legend {
+  display: block;
+}
